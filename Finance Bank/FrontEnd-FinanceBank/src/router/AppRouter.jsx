@@ -12,7 +12,7 @@ export const AppRouter = () => {
 
       <Routes>
 
-        <Route path="/" element={userAuthenticated() ? (<HomePage/>) : (<Navigate to="/login"/>)} />
+        <Route path="/" element={userAuthenticated() ? (<HomePage/>) : (<Navigate to="/HomePage"/>)} />
 
         <Route path="/login" element={!userAuthenticated() ? (<LoginPage/>) : (<Navigate to="/"/>)} />
         <Route path="/create-user" element={<CreateUser/>}/>
