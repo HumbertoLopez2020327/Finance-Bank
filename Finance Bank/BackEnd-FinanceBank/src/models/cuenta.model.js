@@ -47,7 +47,25 @@ const CuentaSchema = Schema({
         default: false,
     },
 
+    email:{
+        type: String,
+        required: true,
+    },
 
+    password:{
+        type: String,
+        required: true, 
+    },
+
+    rol:{
+        type: String,
+        enum: ['USER', 'ADMIN'],
+        default: 'USER',
+    },
+    saldo:{
+        type: Number,
+        default: 0,
+    },
 });
 
 const generarAleatorio = (min, max) => {
