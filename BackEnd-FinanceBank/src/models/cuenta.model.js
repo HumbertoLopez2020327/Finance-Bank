@@ -62,7 +62,10 @@ const CuentaSchema = Schema({
         enum: ['USER', 'ADMIN'],
         default: 'USER',
     },
-
+    saldo:{
+        type: Number,
+        default: 0,
+    },
 });
 
 const generarAleatorio = (min, max) => {
