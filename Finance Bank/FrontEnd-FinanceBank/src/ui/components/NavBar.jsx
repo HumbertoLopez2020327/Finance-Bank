@@ -25,17 +25,24 @@ export const NavBar = () => {
                     <img src="./src/img/Bank.jpg" alt="" className='imagen' />
                 </Link>
             </div>
-            <Link 
+            {/*<Link 
                 className={({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
                 to="/cuenta"
             >
                 Cuenta
-            </Link>
+            </Link>*/}
+            <Link 
+    className={`nav-item nav-link ${window.location.pathname === '/cuenta' ? 'active' : ''}`}
+    to="/cuenta"
+>
+    Cuenta
+</Link>
+
 
             <div className="navbar-collapse">
                 <div className="navbar-nav">
 
-                    <NavLink 
+                    {/*<NavLink 
                         className={ ({ isActive }) => `nav-item nav-link ${isActive ? 'active' : ''}`}
                         to="/historial"
                     >
@@ -47,7 +54,20 @@ export const NavBar = () => {
                         to="/transferencias"
                     >
                         Transferencias
-                    </NavLink>
+                    </NavLink>*/}
+                    <NavLink 
+    className={`nav-item nav-link ${window.location.pathname === '/historial' ? 'active' : ''}`}
+    to="/historial"
+>
+    Historial
+</NavLink>
+
+<NavLink 
+    className={`nav-item nav-link ${window.location.pathname === '/transferencias' ? 'active' : ''}`}
+    to="/transferencias"
+>
+    Transferencias
+</NavLink>
                 </div>
             </div>
 
