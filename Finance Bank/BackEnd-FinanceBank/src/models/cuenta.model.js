@@ -22,7 +22,7 @@ const CuentaSchema = Schema({
 
     NoCuenta: {
         type: String,
-        required: true,
+        required: false,
         default: function () {
             return generarAleatorio(1000000000, 9999999999).toString()
         }
