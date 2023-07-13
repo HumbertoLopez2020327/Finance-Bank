@@ -2,18 +2,19 @@ import 'bootstrap/dist/css/bootstrap.css'
 import { useState } from 'react';
 import { transferencia } from '../api/ApiTransfer';
 import Swal from "sweetalert2";
+import moment from 'moment'
 
 export const Transferencias = () => {
   const [tipo, setTipo] = useState('');
   const [fuente, setFuente] = useState('');
   const [destinatario, setDestinatario] = useState('');
   const [monto, setMonto] = useState(0);
-  const [fecha, setFecha] = useState('');
+  const [fecha, setFecha] = useState(moment().format());
   const [saldo, setSaldo] = useState(0);
   const [descripcion, setDescripcion] = useState('');
 
-  const transfer = async(t)=>{
-    t.preventDefault();
+  const transfer = async(e)=>{
+    e.preventDefault();
     const transferido = await transferencia(tipo, fuente, destinatario, monto, fecha, saldo, descripcion)
     if (transferido) {
       Swal.fire({
@@ -37,9 +38,16 @@ export const Transferencias = () => {
     <label className="col-sm-2 col-form-label">Tipo de Transferencia:</label>
 
     <div className="col-sm-10">
-
-      <input value={ tipo } onChange={({target: { value }}) => setTipo( value )} type="text" className="form-control" id="inputEmail3" placeholder="Ejem. Débitos"/>
-
+    <select
+                    value={tipo}
+                    onChange={(e) => setTipo(e.target.value)}
+                    className="form-control">
+                    <option value="">Seleccionar</option>
+                    <option value="Transferencia">Transferencia</option>
+                    <option value="Pago">Pago</option>
+                    <option value="Creditos">Crédito</option>
+                    <option value="Depositos">Depósito</option>
+                  </select>
     </div>
 
   </div>
@@ -82,17 +90,6 @@ export const Transferencias = () => {
 
   <div className="form-group row">
 
-    <label className="col-sm-2 col-form-label">Fecha Emitida:</label>
-
-    <div className="col-sm-10">
-
-      <input value={ fecha } onChange={({target: { value }}) => setFecha( value )} type="text" className="form-control" id="inputPassword3" placeholder="YY/MM/DD"/>
-
-    </div>
-
-  </div>
-  <div className="form-group row">
-
     <label className="col-sm-2 col-form-label">Saldo:</label>
 
     <div className="col-sm-10">
@@ -118,7 +115,7 @@ export const Transferencias = () => {
 
     <div className="col-sm-10">
 
-      <button type="submit" className="btn btn-primary" onClick={(t) => transfer(t)}>Transferir</button>
+      <button type="submit" className="btn btn-primary" onClick={(e) => transfer(e)}>Transferir</button>
 
     </div>
     </div>

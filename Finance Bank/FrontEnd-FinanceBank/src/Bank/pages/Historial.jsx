@@ -24,6 +24,9 @@ export const Historial = () => {
       <div className="row justify-content-center">
         <div className="col-md-6">
           <h1>Historial</h1>
+          {transacciones.length === 0 ? (
+            <p>No se han realizado transacciones aún</p>
+          ) : (
           <ul className="list-group">
             {transacciones.map((transaccion) => (
               <li key={transaccion._id} className="list-group-item">
@@ -32,6 +35,7 @@ export const Historial = () => {
               </li>
             ))}
           </ul>
+          )}
         </div>
       </div>
     </div>

@@ -2,7 +2,6 @@ import { useState } from "react";
 import  login from "../api/ApiLogin";
 import Swal from "sweetalert2";
 import "../styles/login.css"
-import { Link } from 'react-router-dom';
 /* import { Navigate } from 'react-router-dom' */
 
 export const LoginPage = () => {
@@ -31,10 +30,11 @@ export const LoginPage = () => {
 
   return (
     <>
-    <div className="container">
-      <div className="card"> 
+    <div className="body">
+    <div className="containerLogin">
+      <div className=""> 
       <form>
-      <h2 className="card-title">Iniciar Sesión</h2>
+      <h2 className="">Iniciar Sesión</h2>
         <div className="form-group">
           <label className="label">Correo Electrónico</label>
           <input
@@ -60,17 +60,12 @@ export const LoginPage = () => {
         <button
           type="submit"
           onClick={(e) => SignIn(e)}
-          className="button"
+          className="botonLogin"
         >
           Iniciar Sesión
         </button>
       </form>
-      <p>
-          ¿No tienes una cuenta?{' '}
-          <Link to="/create-user" className="register-link">
-            Regístrate aquí
-          </Link>
-        </p>
+      </div>
       </div>
       </div>
     </>

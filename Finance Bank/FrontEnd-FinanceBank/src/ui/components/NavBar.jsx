@@ -3,6 +3,10 @@ import '/src/ui/styles/NavBar.css'
 
 
 export const NavBar = () => {
+    const logout = ()=>{
+        localStorage.removeItem("token")
+        window.location.href = "/login"
+    }
 
     const navigate = useNavigate();
 
@@ -22,7 +26,7 @@ export const NavBar = () => {
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
             <div className='navbar-logo'>
                 <Link to=''>
-                    <img src="./src/img/Bank.jpg" alt="" className='imagen' />
+                    <img src="./src/img/FinanceBank.png" alt="" className='imagen' />
                 </Link>
             </div>
             {/*<Link 
@@ -73,7 +77,12 @@ export const NavBar = () => {
 
             <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
                 <ul className="navbar-nav ml-auto">
-                    
+                <button 
+                        className="nav-item nav-link btn" 
+                        onClick={ logout }
+                    >
+                        Logout
+                    </button>
                     <button 
                         className="nav-item nav-link btn" 
                         onClick={ handleLogout }
@@ -84,7 +93,7 @@ export const NavBar = () => {
                         className='nav-item nav-link btn'
                         onClick={onRegister}
                     >
-                        Register
+                        Crear un Usuario
                     </button>
                 </ul>
             </div>
