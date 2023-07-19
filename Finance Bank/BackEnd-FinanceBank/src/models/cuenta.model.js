@@ -22,6 +22,10 @@ const CuentaSchema = Schema({
 
     NoCuenta: {
         type: String,
+<<<<<<< HEAD
+=======
+        required: false,
+>>>>>>> d0f8ec4c683f2a0005e103cb770f700038247d9e
         default: function () {
             return generarAleatorio(1000000000, 9999999999).toString()
         }
@@ -55,7 +59,11 @@ const CuentaSchema = Schema({
     },
     saldo:{
         type: Number,
+<<<<<<< HEAD
         default: 100,
+=======
+        default: 0,
+>>>>>>> d0f8ec4c683f2a0005e103cb770f700038247d9e
     },
 });
 

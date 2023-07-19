@@ -4,6 +4,26 @@ const bcrypt = require('bcrypt');
 const { generateJWT } = require('../helpers/create-jwt')
 
 
+const cuentaDefault = async(req, res)=>{
+    try {
+        let cuenta = new Cuenta();
+        cuenta.nombre = "User";
+        cuenta.apellido = "Default";
+        cuenta.dpi = "112233445";
+        cuenta.NoCuenta = "1234567890";
+        cuenta.tipoCuenta = "Monetaria"
+        cuenta.email = "user@gmail.com"
+        cuenta.password = "123456"
+        cuenta.rol= "ADMIN"
+        cuenta.saldo="100000"
+        cuenta = await cuenta.save();
+        return console.log(`La cuenta ${cuenta} ha sido creado por defecto`);
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
 const createCuenta = async(req, res) =>{
     const {dpi, password}= req.body;
     try{
@@ -196,6 +216,7 @@ module.exports={
     createCuenta,
     deleteCuenta,
     updateCuenta,
+<<<<<<< HEAD
     userDefault,
     createUser,
     listUser,
@@ -203,4 +224,7 @@ module.exports={
     deleteUser,
     loginUser,
     searchAccount,
+=======
+    cuentaDefault
+>>>>>>> d0f8ec4c683f2a0005e103cb770f700038247d9e
 }

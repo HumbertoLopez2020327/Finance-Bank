@@ -1,42 +1,139 @@
-.register-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .card {
-    width: 600px;
-    height: 500px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-  }
-  
-  .card-title {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 10px;
-  }
-  
-  .label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  .input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .button {
-    margin-top: 25px ;
-    display: block;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Agdasima&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Agdasima', sans-serif;
+  font-size: 25px;
+  color: black;
+}
+
+/*! Cambiar esto después  */  
+/*?Olas */
+/* *  */
+/* TODO: */
+
+.body {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: linear-gradient(135deg, #098ab4, #0d4f74);
+}
+
+.containerUser {
+  max-width: 750px;
+  width: 100%;
+  background-color: #42b2c6;
+  padding: 25px 30px;
+  border: 50px solid #42b2c6;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+}
+
+.containerUser h2 {
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 20px; 
+}
+
+.containerUser h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px; 
+  height: 3px;
+  width: 30px;
+  background: linear-gradient(135deg, #098ab4, #0d4f74);
+}
+
+/* Resto del código CSS... */
+
+
+.containerUser title {
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+
+.containerUser title::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  background: linear-gradient(135deg, #098ab4, #0d4f74); 
+}
+
+.containerUser form .user-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between
+}
+
+
+form .user-details .input-box{
+  margin: 20px 0 12px 0;
+  width: calc(100%  / 2 - 20px);
+}
+
+.user-details .input-box input{
+  height: 45px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 15px;
+}
+.user-details .input-box select{
+  height: 45px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+  color: black;
+}
+
+.user-details .input-box option{
+  height: 45px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+  color: black;
+}
+
+.user-details .input-box .details{
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+
+.button{
+  height: 55px;
+  width: 100%;
+  outline: none;
+  color:black;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  background-color: lightcyan;
+}
+
+.button:hover{
+  background-color: #098ab4;
+  color: white;
+}

@@ -25,10 +25,18 @@ const TransaccionSchema = Schema({
       required: true
     },
 
+<<<<<<< HEAD
     date:{
         type: String,
         required: true,
     },
+=======
+    date: {
+        type: Date,
+        default: Date.now,
+        required: true
+      },
+>>>>>>> d0f8ec4c683f2a0005e103cb770f700038247d9e
 
    codigoAutorizacion:{
       type: String,
