@@ -6,8 +6,8 @@ const Schema = mongoose.Schema;
 const TransaccionSchema = Schema({
     TipoDeTransaccion:{
         type: String,
+        required:false,
         enum: ['Transferencia', 'Pago', 'Creditos', 'Depositos'],
-        required:true
     },
   
     noCuentaFuente:{
@@ -25,14 +25,22 @@ const TransaccionSchema = Schema({
       required: true
     },
 
-    fechaEmitida:{
+    date:{
         type: String,
         required: true,
     },
 
    codigoAutorizacion:{
       type: String,
-      required:true
+      required:false,
+   },
+   saldo:{
+    type: Number,
+    required: true
+   },
+   descripcion:{
+    type: String,
+    required: true,
    }  
 });
 

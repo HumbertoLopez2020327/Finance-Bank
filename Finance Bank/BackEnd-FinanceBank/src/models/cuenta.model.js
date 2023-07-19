@@ -22,7 +22,6 @@ const CuentaSchema = Schema({
 
     NoCuenta: {
         type: String,
-        required: true,
         default: function () {
             return generarAleatorio(1000000000, 9999999999).toString()
         }
@@ -34,20 +33,30 @@ const CuentaSchema = Schema({
         enum: ['Monetaria', 'Ahorro', 'Corriente']
     },
 
-    usuario: {
-        User: {
-            type: Schema.Types.ObjectId,
-            ref: 'User',
-            require: false
-        },
-    },
-
     inFav: {
         type: Boolean,
         default: false,
     },
 
+    email:{
+        type: String,
+        required: true,
+    },
 
+    password:{
+        type: String,
+        required: true, 
+    },
+
+    rol:{
+        type: String,
+        enum: ['USER', 'ADMIN'],
+        default: 'USER',
+    },
+    saldo:{
+        type: Number,
+        default: 100,
+    },
 });
 
 const generarAleatorio = (min, max) => {
@@ -58,4 +67,4 @@ const generarAleatorio = (min, max) => {
 
 
 
-module.exports = mongoose.model('cuenta', CuentaSchema);
+module.exports = mongoose.model('Cuenta', CuentaSchema);
