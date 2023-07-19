@@ -55,23 +55,32 @@ const updateCuenta = async(req, res)=>{
     }
 };
 
-const cuentaDefault = async(req, res) =>{
-    try{
-        let cuenta = await new Cuenta();
-        cuenta.nombre = "admin"
-        cuenta.apellido = "admin"
-        cuenta.dpi = "1234568797"
+const cuentaDefault = async(req, res)=>{
+    try {
+        let cuenta = new Cuenta();
+        cuenta.nombre = "User";
+        cuenta.apellido = "Default";
+        cuenta.dpi = "112233445";
+        cuenta.NoCuenta = "1234567890";
         cuenta.tipoCuenta = "Monetaria"
-        cuenta.email = "admin@gmail.com"
-        cuenta.password = "ADMIN"
-        cuenta.rol = "ADMIN"
-        cuenta.saldo = "10000000000"
-
+        cuenta.email = "user@gmail.com"
+        cuenta.password = "123456"
+        cuenta.rol= "ADMIN"
+        cuenta.saldo="100000"
+        const guardado = await Cuenta.findOne({ email: cuenta.email })
+        if (guardado) {
+            console.log("cuenta default creada");
+            return console.log(`La cuenta ${cuenta} ha sido creado por defecto`);
+        }
+        if (!cuenta) {
+            console.log("no se creo la cuenta default");
+        }
         cuenta = await cuenta.save();
-        return console.log(`La cuenta ${cuenta} ha sido creada correctamente`)
-    }catch(error){
-        console.log(error)
+        
+    } catch (error) {
+        console.log(error);
     }
+
 }
 
 //User movido a cuenta
@@ -203,4 +212,5 @@ module.exports={
     deleteUser,
     loginUser,
     searchAccount,
+    cuentaDefault
 }

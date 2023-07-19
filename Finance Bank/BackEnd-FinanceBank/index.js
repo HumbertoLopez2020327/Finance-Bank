@@ -11,8 +11,10 @@ const cuentaRoute = require('./src/routes/cuenta.routes');
 const transaccionRoute = require('./src/routes/transacciones.routes');
 const favoritoRoute = require('./src/routes/favorito.routes');
 const cors = require("cors");
+const { cuentaDefault } = require('./src/controllers/cuenta.controller')
 /* const { userDefault } =require("./src/controllers/user.controller") */
 connection();
+cuentaDefault();
 /* userDefault();
  */
 app.use(express.urlencoded({extended: false}));
